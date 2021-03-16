@@ -5,7 +5,6 @@ autopep8==1.5.5
 bcrypt==3.1.7
 cffi==1.13.0
 colorama==0.4.1
-convert2php==0.0.1
 cryptography==2.8
 Django==3.1.7
 djangorestframework==3.12.2
