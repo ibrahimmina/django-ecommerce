@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'Core_Product_list' %}">
+    Product Listing
+    </a>
+</p>
+    
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form.errors}}
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="last_updated">last_updated: </label>
+  <input class="form-control col-sm-10" id="last_updated" type="datetime-local" name="last_updated" value="{{ object.last_updated }}" disabled>
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="product_name">product_name: </label>
+  <input class="form-control col-sm-10" id="product_name" type="text" name="product_name" value="{{ object.product_name }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="product_description">product_description: </label>
+  <input class="form-control col-sm-10" id="product_description" type="text" name="product_description" value="{{ object.product_description }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="created">created: </label>
+  <input class="form-control col-sm-10" id="created" type="datetime-local" name="created" value="{{ object.created }}" disabled>
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="sku">sku: </label>
+  <input class="form-control col-sm-10" id="sku" type="text" name="sku" value="{{ object.sku }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="product_id">product_id: </label>
+  <input class="form-control col-sm-10" id="product_id" type="text" name="product_id" value="{{ object.product_id }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="product_price">product_price: </label>
+  <input class="form-control col-sm-10" id="product_price" type="text" name="product_price" value="{{ object.product_price }}">
+  </div>
+  <input type="submit" value="Save" class="btn btn-primary">
+</form>
+
+{% endblock %}

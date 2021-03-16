@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'Core_user_profile_list' %}">
+    user_profile Listing
+    </a>
+</p>
+    
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form.errors}}
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="date_of_birth">date_of_birth: </label>
+  <input class="form-control col-sm-10" id="date_of_birth" type="date" name="date_of_birth" value="{{ object.date_of_birth }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="created">created: </label>
+  <input class="form-control col-sm-10" id="created" type="datetime-local" name="created" value="{{ object.created }}" disabled>
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="last_updated">last_updated: </label>
+  <input class="form-control col-sm-10" id="last_updated" type="datetime-local" name="last_updated" value="{{ object.last_updated }}" disabled>
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="user_image">user_image: </label>
+  <input class="form-control col-sm-10" id="user_image" type="file" name="user_image" value="{{ object.user_image }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="gender">gender: </label>
+  <input class="form-control col-sm-10" id="gender" type="text" name="gender" value="{{ object.gender }}">
+  </div>
+  <input type="submit" value="Save" class="btn btn-primary">
+</form>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'Core_Payment_list' %}">
+    Payment Listing
+    </a>
+</p>
+    
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form.errors}}
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="created">created: </label>
+  <input class="form-control col-sm-10" id="created" type="datetime-local" name="created" value="{{ object.created }}" disabled>
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="payment_method">payment_method: </label>
+  <input class="form-control col-sm-10" id="payment_method" type="text" name="payment_method" value="{{ object.payment_method }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="payment_id">payment_id: </label>
+  <input class="form-control col-sm-10" id="payment_id" type="text" name="payment_id" value="{{ object.payment_id }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="payment_amount">payment_amount: </label>
+  <input class="form-control col-sm-10" id="payment_amount" type="text" name="payment_amount" value="{{ object.payment_amount }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="last_updated">last_updated: </label>
+  <input class="form-control col-sm-10" id="last_updated" type="datetime-local" name="last_updated" value="{{ object.last_updated }}" disabled>
+  </div>
+  <input type="submit" value="Save" class="btn btn-primary">
+</form>
+
+{% endblock %}

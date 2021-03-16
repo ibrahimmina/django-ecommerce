@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'Core_User_Address_list' %}">
+    User_Address Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+    <tr><td>created</td><td>{{ object.created }}</td></tr>
+    <tr><td>postal_code</td><td>{{ object.postal_code }}</td></tr>
+    <tr><td>city</td><td>{{ object.city }}</td></tr>
+    <tr><td>country</td><td>{{ object.country }}</td></tr>
+    <tr><td>district</td><td>{{ object.district }}</td></tr>
+    <tr><td>address2</td><td>{{ object.address2 }}</td></tr>
+    <tr><td>full_name</td><td>{{ object.full_name }}</td></tr>
+    <tr><td>phone</td><td>{{ object.phone }}</td></tr>
+    <tr><td>address1</td><td>{{ object.address1 }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}

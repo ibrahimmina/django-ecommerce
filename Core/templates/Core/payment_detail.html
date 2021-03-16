@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'Core_Payment_list' %}">
+    Payment Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>created</td><td>{{ object.created }}</td></tr>
+    <tr><td>payment_method</td><td>{{ object.payment_method }}</td></tr>
+    <tr><td>payment_id</td><td>{{ object.payment_id }}</td></tr>
+    <tr><td>payment_amount</td><td>{{ object.payment_amount }}</td></tr>
+    <tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}

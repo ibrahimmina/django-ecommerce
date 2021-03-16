@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'Core_Shipment_list' %}">
+    Shipment Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>shipment_date</td><td>{{ object.shipment_date }}</td></tr>
+    <tr><td>shipment_tracking_number</td><td>{{ object.shipment_tracking_number }}</td></tr>
+    <tr><td>created</td><td>{{ object.created }}</td></tr>
+    <tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+    <tr><td>other_shipment_details</td><td>{{ object.other_shipment_details }}</td></tr>
+    <tr><td>shipment_id</td><td>{{ object.shipment_id }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}
